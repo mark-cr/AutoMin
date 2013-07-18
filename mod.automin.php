@@ -51,6 +51,7 @@ class Automin {
 		$this->EE->load->model('automin_model');
 		$this->EE->load->library('minification_library');
 		$this->EE->load->library('automin_caching_library');
+		$this->EE->load->library('string');
 	}
 	
 	/**
@@ -499,7 +500,7 @@ class Automin {
 			$file_path = $_SERVER['DOCUMENT_ROOT'] . $file_path;
 		}
 
-		return $this->EE->functions->remove_double_slashes($file_path);
+		return reduce_double_slashes($file_path);
 
 	}
 	
